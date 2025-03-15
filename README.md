@@ -93,7 +93,7 @@ The following models were tested:
 
 ---
 
-## 📈 Results
+## 📊 Results
 
 - **Training Accuracy:** XX%  
 - **Test Accuracy:** XX%  
@@ -130,7 +130,7 @@ python predict.py --input sample_data.csv
 
 ---
 
-## 📂 Directory Structure
+## 👤 Directory Structure
 
 ```sh
 Real_Estate_Price_Prediction_ML/
@@ -163,13 +163,14 @@ Real_Estate_Price_Prediction_ML/
 
 Feel free to contribute! Fork this repo, create a branch, and submit a pull request. 🎯
 
+---
 
+## 📚 License
 
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ### 🌟 **If you find this project useful, don’t forget to star ⭐ the repository!**
 ```
-
----
 
