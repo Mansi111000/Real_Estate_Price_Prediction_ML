@@ -1,4 +1,3 @@
-```md
 # 🏡 Real Estate Price Prediction using Machine Learning
 
 This repository contains a **Machine Learning model** that predicts real estate prices based on various property features such as location, size, and amenities. The project includes **data preprocessing, feature engineering, model training, and evaluation** to ensure an accurate and reliable price prediction model.
@@ -174,3 +173,4 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ### 🌟 **If you find this project useful, don’t forget to star ⭐ the repository!**
 ```
 
+This is your full **README.md** file, properly formatted and structured. 🚀 You can copy-paste it directly into your GitHub repo. Let me know if you need any modifications! 😊
