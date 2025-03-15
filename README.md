@@ -15,7 +15,7 @@ This repository contains a **Machine Learning model** that predicts real estate 
 - [Directory Structure](#directory-structure)
 - [Future Enhancements](#future-enhancements)
 - [Contributors](#contributors)
-- [License](#license)
+
 
 ---
 
@@ -164,13 +164,9 @@ Feel free to contribute! Fork this repo, create a branch, and submit a pull requ
 
 ---
 
-## 📚 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
----
 
 ### 🌟 **If you find this project useful, don’t forget to star ⭐ the repository!**
 ```
 
-This is your full **README.md** file, properly formatted and structured. 🚀 You can copy-paste it directly into your GitHub repo. Let me know if you need any modifications! 😊
