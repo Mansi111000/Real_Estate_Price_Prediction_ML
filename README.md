@@ -1,6 +1,6 @@
-# 🏡 Real Estate Price Prediction using Machine Learning
+# 🏡 Real Estate Price Prediction using Machine Learning (Deployed on AWS EC2)
 
-This repository contains a **Machine Learning model** that predicts real estate prices based on various property features such as location, size, and amenities. The project includes **data preprocessing, feature engineering, model training, and evaluation** to ensure an accurate and reliable price prediction model.
+This repository contains a **Machine Learning model** that predicts real estate prices based on various property features such as location, size, and amenities. The project includes **data preprocessing, feature engineering, model training, and evaluation** to ensure an accurate and reliable price prediction model. It is also **deployed on an AWS EC2 Ubuntu instance**, accessible via public DNS.
 
 ---
 
@@ -12,10 +12,10 @@ This repository contains a **Machine Learning model** that predicts real estate 
 - [Model Training](#model-training)
 - [Results](#results)
 - [How to Run the Project](#how-to-run-the-project)
+- [EC2 Deployment Guide](#ec2-deployment-guide)
 - [Directory Structure](#directory-structure)
 - [Future Enhancements](#future-enhancements)
 - [Contributors](#contributors)
-
 
 ---
 
@@ -39,37 +39,27 @@ The model is trained using **machine learning techniques**, with an emphasis on 
 4. **Model Selection & Training** - Compare different ML models (Linear Regression, Decision Trees, XGBoost, etc.).
 5. **Hyperparameter Tuning** - Optimize the model for better performance.
 6. **Evaluation & Predictions** - Assess model accuracy using performance metrics.
-7. **Deployment (Optional)** - Deploy the model using Flask/Django API.
+7. **Deployment** - Deploy the model using Flask API on AWS EC2.
 
 ---
 
 ## 📊 Dataset
 
 - **Features Included:**
-  - `Location` - Geographic area of the property
-  - `Size` - Property size in square feet
-  - `Bedrooms/Bathrooms` - Number of rooms
-  - `Age` - Age of the property
-  - `Amenities` - Facilities available
-  - `Price` - Target variable
-
-- **Preprocessing Steps:**
-  - Handling missing values.
-  - Encoding categorical variables.
-  - Feature scaling using MinMaxScaler/StandardScaler.
+  - `Location`, `Size`, `Bedrooms`, `Bathrooms`, `Age`, `Amenities`, `Price`
+- **Preprocessing:**
+  - Handle missing values
+  - Encode categorical variables
+  - Scale features using MinMaxScaler/StandardScaler
 
 ---
 
 ## 💻 Technologies Used
 
-The project is implemented using the following technologies:
-
-- **Programming Language:** Python 🐍  
-- **Libraries Used:**
-  - **Data Processing:** `pandas`, `numpy`
-  - **Visualization:** `matplotlib`, `seaborn`
-  - **Machine Learning:** `scikit-learn`, `XGBoost`
-  - **Evaluation Metrics:** `R² Score`, `Mean Absolute Error`, `RMSE`
+- **Languages:** Python 🐍
+- **Libraries:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `xgboost`
+- **API Framework:** Flask
+- **Deployment:** AWS EC2, Ubuntu, Nginx, Gunicorn, Putty, WinSCP
 
 ---
 
@@ -94,79 +84,103 @@ The following models were tested:
 
 ## 📊 Results
 
-- **Training Accuracy:** XX%  
-- **Test Accuracy:** XX%  
-- **Best Model:** `XGBoost`
+- **Training Accuracy:** XX%
+- **Test Accuracy:** XX%
 - **Key Insights:**
-  - `Location` and `Size` were the most important factors in price prediction.
-  - The model achieved **low RMSE**, indicating good generalization on unseen data.
+  - Location and Size had the highest feature importance.
+  - Model generalized well on unseen data.
 
 ---
 
 ## 🚀 How to Run the Project
 
-### **Step 1: Clone the Repository**
-```sh
+### Step 1: Clone the Repository
+```bash
 git clone https://github.com/Mansi111000/Real_Estate_Price_Prediction_ML.git
 cd Real_Estate_Price_Prediction_ML
 ```
 
-### **Step 2: Install Dependencies**
-Since there is no `requirements.txt` file, manually install the required libraries:
-```sh
-pip install pandas numpy matplotlib seaborn scikit-learn xgboost
+### Step 2: Install Dependencies
+```bash
+pip install -r requirements.txt
 ```
 
-### **Step 3: Run the Model**
-```sh
+### Step 3: Run the Model
+```bash
 python train_model.py
 ```
 
-### **Step 4: Make Predictions**
-```sh
+### Step 4: Make Predictions
+```bash
 python predict.py --input sample_data.csv
 ```
 
 ---
 
+## ☁️ EC2 Deployment Guide
+
+- Launch EC2 Ubuntu instance
+- Allow inbound rules: **SSH, HTTP, HTTPS**
+- Generate `.pem` key → convert to `.ppk` using **PuTTYgen**
+- SSH into instance via Git Bash:
+```bash
+ssh -i <path-to-pem> ubuntu@<public-dns>
+```
+
+### WinSCP Setup:
+- Host: Public DNS of EC2
+- Username: `ubuntu`
+- Auth: Add `.ppk` in Advanced > SSH > Authentication
+
+### Web Server Setup:
+- Install NGINX & Python3 venv
+- Navigate to `/var/www/html` or redefine root in `bhp.conf`
+- Activate your virtual environment:
+```bash
+cd BHP/server
+source venv/bin/activate
+python3 server.py
+```
+
+### Access the Server:
+- Copy EC2 **Public DNS** in browser after server runs
+- You’ll see your deployed app live on the internet ✅
+
+---
+
 ## 👤 Directory Structure
 
-```sh
+```bash
 Real_Estate_Price_Prediction_ML/
-│── data/                    # Raw & processed datasets
-│── notebooks/                # Jupyter notebooks for EDA & experiments
-│── models/                   # Trained ML models
-│── scripts/
-│   ├── preprocess.py         # Data cleaning & feature engineering
-│   ├── train_model.py        # Model training script
-│   ├── predict.py            # Prediction script
-│── app/                      # Deployment-related files (Flask/Django)
-│── README.md                 # Project documentation
-│── config.yaml               # Configuration file
+├── data/
+├── notebooks/
+├── models/
+├── scripts/
+│   ├── preprocess.py
+│   ├── train_model.py
+│   ├── predict.py
+├── app/
+├── config.yaml
+├── README.md
 ```
 
 ---
 
 ## 🔮 Future Enhancements
 
-✅ Improve Feature Engineering  
-✅ Try Deep Learning models (ANNs)  
-✅ Integrate real-time price updates using APIs  
-✅ Deploy as a web app for user-friendly access  
+- Improve Feature Engineering
+- Try Deep Learning models (ANNs)
+- Integrate Real-Time APIs
+- Deploy with Docker & CI/CD pipelines
 
 ---
 
 ## 👥 Contributors
 
 - **Mansi111000** - [GitHub Profile](https://github.com/Mansi111000)
+- **VedantPancholi** - [GitHub Profile](https://github.com/VedantPancholi)
 
-Feel free to contribute! Fork this repo, create a branch, and submit a pull request. 🎯
+> ⭐ Feel free to fork, star, and contribute!
 
----
-
-
-
-
-### 🌟 **If you find this project useful, don’t forget to star ⭐ the repository!**
 
 
